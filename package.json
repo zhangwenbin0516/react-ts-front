@@ -1,0 +1,34 @@
+{
+  "name": "react-ts-front",
+  "version": "1.0.0",
+  "description": "react项目使用typescript脚本开发",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangwenbin0516/react-ts-front.git"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "typescript"
+  ],
+  "author": " <zhangwenbin> (942623159@qq.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangwenbin0516/react-ts-front/issues"
+  },
+  "homepage": "https://github.com/zhangwenbin0516/react-ts-front#readme",
+  "dependencies": {
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.8.3"
+  }
+}
