@@ -1,7 +1,12 @@
 import path from 'path';
 
-export const WebpackBase = {
-    entry: {
-        app: path.join(__dirname, '..', 'src/index.ts')
+import { Configuration, ExternalsElement } from 'webpack';
+
+class WebpackBase implements Configuration{
+    entry: [path.resolve(__dirname, '../src/index.ts')]
+    constructor(data: object) {
+       console.log(data)
     }
 }
+
+export default WebpackBase;
