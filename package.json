@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "react项目使用typescript脚本开发",
   "scripts": {
-    "dev": "ts-node bin/webpack.dev.conf.ts"
+    "dev": "npx webpack --config ./bin/webpack.dev.conf.js"
   },
   "repository": {
     "type": "git",
@@ -27,14 +27,11 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@types/node": "^13.9.3",
-    "@types/webpack": "^4.41.8",
-    "awesome-typescript-loader": "^5.2.1",
-    "source-map-loader": "^0.2.4",
-    "start-server-webpack-plugin": "^2.2.5",
-    "ts-node": "^8.8.1",
-    "tsconfig-paths": "^3.9.0",
+    "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
-    "webpack-node-externals": "^1.7.2"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   }
 }
