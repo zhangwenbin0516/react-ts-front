@@ -9,13 +9,15 @@
 "use strict";
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        app: path.join(__dirname, '..', 'src/index.ts')
+        app: path.join(__dirname, '..', 'src/app.module.tsx')
     },
     resolve: {
-        extensions: ['.ts', 'tsx', '.js', '.scss', '.json'],
+        extensions: ['.ts', 'tsx', '.js', 'jsx', '.scss', '.json'],
         alias: {
 
         }
@@ -25,13 +27,14 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 use: {
-                    loader: 'ts-loader',
+                    loader: 'ts-loader'
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
                     {loader: 'style-loader'},
+                    {loader: MiniCssExtractPlugin.loader},
                     {loader: 'css-loader'},
                     {loader: 'sass-loader'}
                 ]
@@ -39,6 +42,19 @@ module.exports = {
         ]
     },
     plugins: [
-
+        new MiniCssExtractPlugin({
+            filename: '/css/[name].[Hash:9].js',
+            chunkFilename: '[id].css'
+        }),
+        new HtmlWebpackPlugin({
+            title: '中博题库',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true
+            },
+            filename: 'index.html',
+            template: path.join(__dirname, '..', 'static/index.html')
+        })
     ]
 }

@@ -7,15 +7,26 @@
 ********************************************
 */
 "use strict";
+const path = require('path');
 const webpackMerge = require('webpack-merge');
 const webpackBase = require('./webpack.base.conf');
 
 module.exports = webpackMerge(webpackBase, {
     mode: 'development',
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, '..', 'dist'),
+        hot: true,
+        host: 'localhost',
+        port: '4560',
+        open: true
+    },
     output: {
-        filename: '/js/[name].[Hash:9].js',
+        filename: 'js/[name].[Hash:9].js',
         path: path.join(__dirname, '..', 'dist'),
-        publicPath: '/'
-    }
+        publicPath: '/',
+    },
+    plugins: [
+
+    ]
 })
