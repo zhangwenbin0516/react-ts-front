@@ -18,10 +18,10 @@ interface Action {
 const StoreData = (state: any = CreateData, action: Action) => {
     switch(action.type) {
         case 'upadteData':
-            state = {...state, ...action.data}
+            return {...state, ...action.data}
             break;
         case 'addData':
-            state = {...state, ...action.data}
+            return {...state, ...action.data}
             break;
         default:
             return state

@@ -42,10 +42,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: '/css/[name].[Hash:9].js',
-            chunkFilename: '[id].css'
-        }),
         new HtmlWebpackPlugin({
             title: '中博题库',
             minify: {
@@ -55,6 +51,10 @@ module.exports = {
             },
             filename: 'index.html',
             template: path.join(__dirname, '..', 'static/index.html')
+        }),
+        new MiniCssExtractPlugin({
+            filename: '/css/[name].[Hash:9].js',
+            chunkFilename: '[id].css'
         })
     ]
 }
