@@ -27,8 +27,14 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 use: {
-                    loader: 'ts-loader'
-                }
+                    loader: 'awesome-typescript-loader'
+                },
+                exclude: /node_modules/
+            },
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader'
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -55,6 +61,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '/css/[name].[Hash:9].js',
             chunkFilename: '[id].css'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }

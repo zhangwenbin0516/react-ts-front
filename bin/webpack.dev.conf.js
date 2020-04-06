@@ -19,7 +19,10 @@ module.exports = webpackMerge(webpackBase, {
         hot: true,
         host: 'localhost',
         port: '4560',
-        open: true
+        open: true,
+        historyApiFallback: {
+            index: 'index.html'
+        }
     },
     output: {
         filename: 'js/[name].[Hash:9].js',

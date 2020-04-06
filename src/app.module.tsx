@@ -8,24 +8,27 @@
 */
 import * as React from "react";
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { store } from './redux';
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
+
 interface IProps {}     // 声明props接口
 interface IState {}   // 声明state接口
 class App extends React.Component<IProps, IState>{
-    constructor(props: object) {
+    constructor(public props: object) {
         super(props);
     }
-    render(): JSX.Element{
+    public render(): any{
         return(<Provider store={store}>
             <ConfigProvider locale={zh_CN}>
-                <BrowserRouter></BrowserRouter>
+                <BrowserRouter>
+                    
+                </BrowserRouter>
             </ConfigProvider>
         </Provider>)
     }
 }
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root') as HTMLElement);
