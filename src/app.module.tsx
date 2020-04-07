@@ -20,6 +20,9 @@ class App extends React.Component<IProps, IState>{
     constructor(public props: object) {
         super(props);
     }
+    public componentWillMount() {
+        
+    }
     public render(): any{
         return(<Provider store={store}>
             <ConfigProvider locale={zh_CN}>

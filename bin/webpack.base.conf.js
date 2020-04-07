@@ -19,7 +19,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts', 'tsx', '.js', 'jsx', '.scss', '.json'],
         alias: {
-
+            
         }
     },
     module: {
