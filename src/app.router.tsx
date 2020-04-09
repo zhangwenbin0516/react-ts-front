@@ -9,13 +9,16 @@
  * -----
  * Copyright 2017 - 2020 Your Company, Your Company
  */
-export const AppRouter: Array<any> = [
+import PageModule  from './components/page.module'
+const AppRouter: Array<any> = [
     {
         name: '首页',
         value: '',
         isShow: true,
         isPath: '',
         path: '/',
-        component: require('')
+        component: PageModule
     }
 ]
+
+export default { AppRouter }

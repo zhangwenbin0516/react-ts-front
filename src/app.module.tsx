@@ -9,26 +9,30 @@
 import * as React from "react";
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { store } from './redux';
+import AppRouter from './app.router';
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
 
 interface IProps {}     // 声明props接口
 interface IState {}   // 声明state接口
+// interface AppModule
 class App extends React.Component<IProps, IState>{
     constructor(public props: object) {
         super(props);
     }
     public componentWillMount() {
-        
+        console.log(AppRouter)
     }
     public render(): any{
         return(<Provider store={store}>
             <ConfigProvider locale={zh_CN}>
-                <BrowserRouter>
-                    
-                </BrowserRouter>
+                <Router>
+                    <Switch>
+
+                    </Switch>
+                </Router>
             </ConfigProvider>
         </Provider>)
     }
