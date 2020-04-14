@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/zhangwenbin0516/react-ts-front#readme",
   "dependencies": {
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-redux": "^7.1.7",
+    "@types/react-router": "^5.1.5",
     "@types/react-router-dom": "^5.1.4",
     "@types/redux": "^3.6.0",
     "antd": "^4.1.0",
@@ -34,10 +38,6 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
-    "@types/react": "^16.9.27",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-redux": "^7.1.7",
-    "@types/react-router": "^5.1.5",
     "babel-plugin-import": "^1.13.0",
     "css-loader": "^3.4.2",
     "html-loader": "^1.0.0",

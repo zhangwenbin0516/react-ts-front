@@ -28,4 +28,4 @@ const StoreData = (state: any = CreateData, action: Action) => {
     }
 }
 
-export const store = connect(StoreData);
+export const store: any = connect(StoreData);
