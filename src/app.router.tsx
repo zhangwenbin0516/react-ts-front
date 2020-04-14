@@ -9,8 +9,10 @@
  * -----
  * Copyright 2017 - 2020 Your Company, Your Company
  */
-import PageModule  from './components/page.module'
-const AppRouter: Array<any> = [
+import * as React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PageModule  from './components/page.module';
+const Routes: Array<any> = [
     {
         name: '首页',
         value: '',
@@ -20,5 +22,21 @@ const AppRouter: Array<any> = [
         component: PageModule
     }
 ]
+interface AppProps {}
+interface AppState {}
+export class AppRouter extends React.Component<AppProps, AppState>{
+    constructor(public props: AppProps) {
+        super(props);
+    }
+    public render() {
+        return(<Router>
+            {
+                Routes.map((item, index) => {
+                    return <Route path={ item.path } component={item.component} key={index} />
+                })
+            }
+        </Router>)
+    }
+}
 
-export default { AppRouter }
+export default AppRouter;

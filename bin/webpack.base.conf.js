@@ -18,16 +18,16 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', 'tsx', '.js', 'jsx', '.scss', '.json'],
-        alias: {
-            
-        }
+        // alias: {
+        //     "@page": path.join(__dirname, '..', 'src/components')
+        // }
     },
     module: {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
                 use: {
-                    loader: 'awesome-typescript-loader'
+                    loader: 'ts-loader'
                 },
                 exclude: /node_modules/
             },

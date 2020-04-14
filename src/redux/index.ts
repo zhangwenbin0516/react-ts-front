@@ -9,7 +9,7 @@
  * -----
  * Copyright 2017 - 2020 Your Company, Your Company
  */
-import { createStore } from 'redux';
+import { connect } from "react-redux";
 import { CreateData } from './state';
 interface Action {
     type: string;
@@ -28,4 +28,4 @@ const StoreData = (state: any = CreateData, action: Action) => {
     }
 }
 
-export const store = createStore(StoreData);
+export const store = connect(StoreData);
