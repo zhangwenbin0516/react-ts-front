@@ -1,0 +1,53 @@
+{
+  "name": "question-test-front",
+  "version": "1.0.0",
+  "description": "中博题库做题系统",
+  "scripts": {
+    "ts-dev": "npx ./src/index.ts",
+    "ts-build": "tsc",
+    "dev": "npx webpack-dev-server --config ./bin/webpack.server.js",
+    "build": "npx webpack --config ./bin/webpack.build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangwenbin0516/react-ts-front.git"
+  },
+  "keywords": [
+    "中博题库",
+    "react",
+    "typescript",
+    "webpack"
+  ],
+  "author": " <zhangwenbin>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangwenbin0516/react-ts-front/issues"
+  },
+  "homepage": "https://github.com/zhangwenbin0516/react-ts-front#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.1",
+    "@types/webpack": "^4.41.11",
+    "awesome-typescript-loader": "^5.2.1",
+    "html-webpack-plugin": "^4.2.0",
+    "jest": "^25.3.0",
+    "source-map-loader": "^0.2.4",
+    "ts-node": "^8.8.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-redux": "^7.1.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "tslib": "^1.11.1"
+  }
+}
