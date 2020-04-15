@@ -9,8 +9,9 @@
  * -----
  * Copyright 2017 - 2020 Your Company, Your Company
  */
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
     mode: "development",
     entry: {
@@ -22,35 +23,49 @@ module.exports = {
         publicPath: '/'
     },
     devtool: "source-map",
+    devServer: {
+        host: 'localhost',
+        port: '4078',
+        open: true,
+        hot: true,
+        historyApiFallback: {
+            index: 'index.html'
+        }
+    },
     resolve: {
-        extensions: [".ts", ".tsc", ".js", ".json", ".scss", ".css"]
+        extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"]
     },
     module: {
         rules: [
             {
-                test: /\.t(s|sc)$/,
-                use: {
-                    loader: "awesome-typescript-loader"
-                }
+                test: /\.t(s|sx)$/,
+                include: path.join(__dirname, '..', 'src'),
+                use: [
+                    {
+                        loader: "awesome-typescript-loader"
+                    }
+                ],
+                exclude: /node_modules/
             },
             {
                 enforce: "pre",
                 test: /\.js$/,
-                use: {
+                use: [{
                     loader: "source-map-loader"
-                }
+                }]
             }
         ]
     },
-    externals: {
+   /* externals: {
         "react": "React",
         "react-dom": "ReactDOM"
-    },
+    },*/
     plugins: [
         new HtmlWebpackPlugin({
             title: "中博题库",
             template: path.join(__dirname, '..', 'static/index.html'),
             filename: 'index.html'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }

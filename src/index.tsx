@@ -19,8 +19,8 @@ class AppModule extends React.Component<Props, State> {
         super(props)
     }
     public render() {
-        return(<div id="root"></div>)
+        return(<div></div>)
     }
 }
 
-ReactDOM.render(<AppModule />, document.body as HTMLElement);
+ReactDOM.render(<AppModule />, document.getElementById('root') as HTMLElement);
