@@ -6,6 +6,7 @@
 * @Create Date: 2020/4/15 22:43
 ********************************************
 */
+import { connect, DispatchProp } from 'react-redux';
 import { actions, ADD_DATA, UPDATE_DATA } from './action';
 import { StoreState } from './state';
 
@@ -21,3 +22,15 @@ export function setState(state: StoreState, action: actions): StoreState {
             return state;
     }
 }
+
+export function mapStateToProps({}: actions) {
+    return {}
+}
+
+export function mapDispatchToProps(dispatch: DispatchProp<actions>) {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps);
