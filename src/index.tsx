@@ -11,12 +11,6 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { setState } from '@redux/index'
-import { StoreState } from '@redux/state';
-
-const store = createStore<StoreState>(setState);
 
 interface Props {}
 interface State {}
@@ -25,9 +19,7 @@ class AppModule extends React.Component<Props, State> {
         super(props)
     }
     public render() {
-        return(<Provider store={store}>
-
-        </Provider>)
+        return(<div></div>)
     }
 }
 

@@ -1,37 +1,16 @@
-/**
-********************************************
-* @Project File: action.ts
-* @author: <zhangwenbin>
-* @E-mail: <942623159@qq.com>
-* @Create Date: 2020/4/15 22:44
-********************************************
+/*
+* @Project: action.ts
+* @Author: <zhangwenbin>
+* @e-mail: <942623159@qq.com>
+* @Date: 20-4-17 下午5:56
 */
-// 添加数据
-export const ADD_DATA = 'ADD_DATA';
-export type ADD_DATA = typeof ADD_DATA;
 
-// 更新数据
-export const UPDATE_DATA = 'UPDATE_DATA';
-export type UPDATE_DATA = typeof UPDATE_DATA;
+/*
+* 定义数据类型
+* */
 
-export interface AddData {
-    type: ADD_DATA
-}
+export const add = 'add';   //定义数据类型
+export type add = typeof add;   //声明错误数据类型
 
-export interface UpdateData {
-    type: UPDATE_DATA
-}
-
-export type actions = AddData | UpdateData;
-
-export function addData(): AddData {
-    return {
-        type: ADD_DATA
-    }
-}
-
-export function updateData(): UpdateData {
-    return {
-        type: UPDATE_DATA
-    }
-}
+export const update = 'update';
+export type update = typeof update;

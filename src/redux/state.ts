@@ -7,5 +7,6 @@
 ********************************************
 */
 export interface StoreState {
-
+    userInfo: object;
+    token: string;
 }
