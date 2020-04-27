@@ -5,5 +5,5 @@
 * @Date: 20-4-24 下午6:19
 */
 export type storeState = {
-
+    userInfo: object
 }

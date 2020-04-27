@@ -7,21 +7,21 @@
 ********************************************
 */
 
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { connect, Dispatch } from 'react-redux';
+
 import { storeState } from '@redux/state';
 
-import * as PageModule from '@page/index';
+import PageModule from '@page/index';
 
 import { addAction, updateAction } from '@redux/action';
 
 const mapStateToProps = (state: storeState): any => ({
-    ...state
+    value: state
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    onUpdateData: () => dispatch(updateAction()),
-    onAddData: () => dispatch(addAction())
+    onIncrement: () => dispatch(addAction()),
+    onDecrement: () => dispatch(updateAction())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PageModule);
