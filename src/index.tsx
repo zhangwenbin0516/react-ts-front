@@ -11,9 +11,10 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import PageModule from '@redux/index';
+import store from '@redux/index';
 
 interface Props {}
 interface State {}
@@ -24,7 +25,7 @@ class AppModule extends React.Component<Props, State> {
     public render() {
         return(<ConfigProvider locale={zhCN}>
             <div className={'App'}>
-                <PageModule />
+                <Provider store={store}></Provider>
             </div>
         </ConfigProvider>)
     }

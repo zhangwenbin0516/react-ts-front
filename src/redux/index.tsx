@@ -1,27 +1,17 @@
-/**
-********************************************
-* @Project File: index.ts
-* @author: <zhangwenbin>
-* @E-mail: <942623159@qq.com>
-* @Create Date: 2020/4/21 23:17
-********************************************
-*/
+import { Dispatch } from "react";
+import { connect } from "react-redux";
+import view from "@page/index";
 
-import { connect, Dispatch } from 'react-redux';
+import { All, INCREMENT_NUMBER, DECREMENT_NUMBER } from "./actions";
 
-import { storeState } from '@redux/state';
+const mapDispatchToProps = (dispatch: Dispatch<All>) => ({
+  INCREMENT_NUMBER: () => dispatch(INCREMENT_NUMBER()),
+  DECREMENT_NUMBER: () => dispatch(DECREMENT_NUMBER())
+});
 
-import PageModule from '@page/index';
-
-import { addAction, updateAction } from '@redux/action';
-
-const mapStateToProps = (state: storeState): any => ({
-    value: state
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    onIncrement: () => dispatch(addAction()),
-    onDecrement: () => dispatch(updateAction())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageModule);
+const mapStateToProps = (state: any) => ({});
+const store = connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(view);
+export default store;
