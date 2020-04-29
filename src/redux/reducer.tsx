@@ -1,21 +1,16 @@
 import * as Actions from "./actions";
 import * as ActionTypes from "./actionTypes";
+import { StoreState } from './state';
 
-const initState = {
-  number:0
-};
-
-type IState = Readonly<typeof initState>;
-
-const count = (state: IState = initState, action: Actions.All): IState => {
+const count = (state: StoreState, action: Actions.All): StoreState => {
   switch (action.type) {
-    case ActionTypes.INCREMENT_NUMBER:
+    case ActionTypes.INCREMENT_USERINFO:
       return{
-        number: state.number + 1
+        userInfo: state
       }
-    case ActionTypes.DECREMENT_NUMBER:
+    case ActionTypes.DECREMENT_USERINFO:
       return{
-        number: state.number - 1
+        userInfo: state
       }
     default:
       return state;

@@ -1,23 +1,23 @@
 import * as ActionTypes from "./actionTypes";
 
-interface INCREMENT_NUMBER {
-  type: ActionTypes.INCREMENT_NUMBER;
+interface INCREMENT_USERINFO {
+  type: ActionTypes.INCREMENT_USERINFO;
 }
 
-interface DECREMENT_NUMBER {
-  type: ActionTypes.DECREMENT_NUMBER;
+interface DECREMENT_USERINFO {
+  type: ActionTypes.DECREMENT_USERINFO;
 }
 
-export type All = INCREMENT_NUMBER | DECREMENT_NUMBER;
+export type All = INCREMENT_USERINFO | DECREMENT_USERINFO;
 
-export function INCREMENT_NUMBER(): INCREMENT_NUMBER {
+export function INCREMENT_NUMBER(): INCREMENT_USERINFO {
   return {
-    type: ActionTypes.INCREMENT_NUMBER
+    type: ActionTypes.INCREMENT_USERINFO
   };
 }
 
-export function DECREMENT_NUMBER(): DECREMENT_NUMBER {
+export function DECREMENT_NUMBER(): DECREMENT_USERINFO {
   return {
-    type: ActionTypes.DECREMENT_NUMBER
+    type: ActionTypes.DECREMENT_USERINFO
   };
 }
