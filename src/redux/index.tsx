@@ -1,17 +1,12 @@
-import { Dispatch } from "react";
-import { connect } from "react-redux";
-import view from "@page/index";
-
-import { All, INCREMENT_NUMBER, DECREMENT_NUMBER } from "./actions";
-
-const mapDispatchToProps = (dispatch: Dispatch<All>) => ({
-  INCREMENT_NUMBER: () => dispatch(INCREMENT_NUMBER()),
-  DECREMENT_NUMBER: () => dispatch(DECREMENT_NUMBER())
-});
-
-const mapStateToProps = (state: any) => ({});
-const store = connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(view);
-export default store;
+/*
+ * Filename: d:\workspaces\react-ts-front\src\redux\index.tsx
+ * Path: d:\workspaces\react-ts-front
+ * Created Date: Thursday, April 30th 2020, 9:52:30 am
+ * Author: zhangwenbin
+ * 
+ * Copyright (c) 2020 Your Company
+ */
+import { createStore } from 'redux';
+import { StoreState } from '@redux/state';
+import { reducer } from '@redux/reducer';
+ export const store = createStore(reducer, {...StoreState});

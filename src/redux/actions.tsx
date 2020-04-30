@@ -1,23 +1,8 @@
-import * as ActionTypes from "./actionTypes";
-
-interface INCREMENT_USERINFO {
-  type: ActionTypes.INCREMENT_USERINFO;
-}
-
-interface DECREMENT_USERINFO {
-  type: ActionTypes.DECREMENT_USERINFO;
-}
-
-export type All = INCREMENT_USERINFO | DECREMENT_USERINFO;
-
-export function INCREMENT_NUMBER(): INCREMENT_USERINFO {
-  return {
-    type: ActionTypes.INCREMENT_USERINFO
-  };
-}
-
-export function DECREMENT_NUMBER(): DECREMENT_USERINFO {
-  return {
-    type: ActionTypes.DECREMENT_USERINFO
-  };
-}
+/*
+ * Filename: d:\workspaces\react-ts-front\src\redux\actions.tsx
+ * Path: d:\workspaces\react-ts-front
+ * Created Date: Thursday, April 30th 2020, 11:05:22 am
+ * Author: zhangwenbin
+ * 
+ * Copyright (c) 2020 Your Company
+ */

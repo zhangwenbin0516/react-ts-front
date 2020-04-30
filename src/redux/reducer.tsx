@@ -1,21 +1,8 @@
-import * as Actions from "./actions";
-import * as ActionTypes from "./actionTypes";
-import { StoreState } from './state';
-
-const count = (state: StoreState, action: Actions.All): StoreState => {
-  switch (action.type) {
-    case ActionTypes.INCREMENT_USERINFO:
-      return{
-        userInfo: state
-      }
-    case ActionTypes.DECREMENT_USERINFO:
-      return{
-        userInfo: state
-      }
-    default:
-      return state;
-  }
-
-};
-
-export default count;
+/*
+ * Filename: d:\workspaces\react-ts-front\src\redux\reducer.tsx
+ * Path: d:\workspaces\react-ts-front
+ * Created Date: Thursday, April 30th 2020, 11:05:36 am
+ * Author: zhangwenbin
+ * 
+ * Copyright (c) 2020 Your Company
+ */

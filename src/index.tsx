@@ -14,8 +14,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import store from '@redux/index';
-
+import { store } from '@redux/index';
 interface Props {}
 interface State {}
 class AppModule extends React.Component<Props, State> {
