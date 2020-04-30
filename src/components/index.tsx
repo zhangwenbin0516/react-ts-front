@@ -12,8 +12,11 @@ class PageModule extends React.Component<any, any>{
     constructor(public props: any) {
         super(props);
     }
+    componentWillMount() {
+        console.log(this.props)
+    }
     public render() {
-        return(<div></div>)
+        return(<div className="page-master"></div>)
     }
 }
 
