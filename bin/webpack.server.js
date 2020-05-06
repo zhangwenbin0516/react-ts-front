@@ -34,7 +34,11 @@ module.exports = {
         }
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"]
+        extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"],
+        alias: {
+            '@page': path.join(__dirname, '..', 'src/components'),
+            '@redux': path.join(__dirname, '..', 'src/redux')
+        }
     },
     module: {
         rules: [

@@ -1,16 +1,15 @@
 /*
- * Filename: d:\workspaces\react-ts-front\src\redux\index.tsx
+ * Filename: d:\workspaces\react-ts-front\src\redux\index.ts
  * Path: d:\workspaces\react-ts-front
- * Created Date: Thursday, April 30th 2020, 2:39:22 pm
+ * Created Date: Wednesday, May 6th 2020, 5:22:37 pm
  * Author: zhangwenbin
  * 
  * Copyright (c) 2020 Your Company
  */
-import { createStore, combineReducers } from 'redux';
-import { ReducerUserInfo, ReducerDoMain } from './reducer/userInfo';
-const reducer = combineReducers({
-    ReducerUserInfo,
-    ReducerDoMain
-})
-const store = createStore(reducer);
-export default store;
+
+import { createStore } from 'redux';
+import { data } from '@redux/reducers/';
+import { DataAction } from '@redux/actions/';
+import { StoreState } from '@redux/types/';
+console.log(createStore)
+export const store = createStore<StoreState, DataAction, any, any>(data);
