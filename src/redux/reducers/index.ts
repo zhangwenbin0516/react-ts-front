@@ -10,8 +10,7 @@
  import { DataAction } from '@redux/actions/';
  import { StoreState } from '@redux/types/';
  import { ADD_DATA, UPDATE_DATA, DELETE_DATA } from '@redux/constants/';
-
- export function data(state: StoreState, action: DataAction): StoreState {
+ export function reducer(state: any, action: DataAction): StoreState {
      switch(action.type) {
          case ADD_DATA:
              return {...state, ...action.playdata}

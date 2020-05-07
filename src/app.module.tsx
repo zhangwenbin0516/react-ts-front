@@ -14,20 +14,22 @@ import ReactDOM from 'react-dom';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Provider } from 'react-redux';
-import * as store from './redux';
+import { createStore } from 'redux';
 
-import PageModule from '@page/index';
+import { reducer } from '@redux/reducers/';
+const store = createStore(reducer);
+
+import AppRouter from '@/app.router';
 
 interface Props {}
-interface State {}
-class AppModule extends React.Component<Props, State> {
+class AppModule extends React.PureComponent<Props> {
     constructor(public props: Props) {
         super(props)
     }
     public render() {
         return(<ConfigProvider locale={zhCN}>
             <Provider store={store}>
-                <PageModule store={store} />
+                <AppRouter store= { store } />
             </Provider>
         </ConfigProvider>)
     }

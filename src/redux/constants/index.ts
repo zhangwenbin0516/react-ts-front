@@ -16,5 +16,5 @@ export type UPDATE_DATA = typeof UPDATE_DATA;
 export const DELETE_DATA = 'DELETE_DATA';
 export type DELETE_DATA = typeof DELETE_DATA;
 
-export let DATA_TYPE: object = {};
+export let DATA_TYPE: any = '';
 export type DATA_TYPE = typeof DATA_TYPE;

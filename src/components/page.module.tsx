@@ -7,16 +7,18 @@
 ********************************************
 */
 import React from 'react';
+interface Props {}
 
-class PageModule extends React.Component<any, any>{
-    constructor(public props: any) {
+class PageModule extends React.PureComponent<Props>{
+    constructor(public props: Props) {
         super(props);
     }
+    public state:any = {}
     componentWillMount() {
-        console.log(this.props)
+        console.log(this.state.eee)
     }
     public render() {
-        return(<div className="page-master"></div>)
+        return(<div className="page"></div>)
     }
 }
 

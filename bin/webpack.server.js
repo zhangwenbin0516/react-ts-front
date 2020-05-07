@@ -11,17 +11,14 @@
  */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
     mode: "development",
     entry: {
-        app: path.join(__dirname, '..', 'src/index.tsx')
-    },
-    output: {
-        filename: 'js/[name].[Hash].js',
-        path: path.join(__dirname, '..', 'dist'),
-        publicPath: '/'
+        app: path.join(__dirname, '..', 'src/app.module.tsx')
     },
     devtool: "source-map",
     devServer: {
@@ -29,13 +26,12 @@ module.exports = {
         port: '4078',
         open: true,
         hot: true,
-        historyApiFallback: {
-            index: 'index.html'
-        }
+        historyApiFallback: true
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"],
         alias: {
+            '@': path.join(__dirname, '..', 'src'),
             '@page': path.join(__dirname, '..', 'src/components'),
             '@redux': path.join(__dirname, '..', 'src/redux')
         }
@@ -61,16 +57,29 @@ module.exports = {
             }
         ]
     },
-   /* externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },*/
     plugins: [
+        new CleanWebpackPlugin({
+            dry: true, // 模拟删除
+            verbose: true, // 写入日志
+            cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist")]
+        }),
         new HtmlWebpackPlugin({
             title: "中博题库",
+            facicon: path.join(__dirname, '..', 'dist/facicon.png'),
             template: path.join(__dirname, '..', 'static/index.html'),
             filename: 'index.html'
         }),
+        new CopyWebpackPlugin([
+            {
+                from: path.join(__dirname, '..', 'static/facicon.png'),
+                to: path.join(__dirname, '..', 'dist/')
+            }
+        ]),
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    output: {
+        filename: 'js/[name].[Hash].js',
+        path: path.join(__dirname, '..', 'dist'),
+        publicPath: '/'
+    }
 }
