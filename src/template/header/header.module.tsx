@@ -25,13 +25,13 @@ class HeaderModule extends React.PureComponent<any>{
         })
     }
     protected onPage() {
-        this.props.history.push('/page/home');
+       this.props.history.push('/page/home');
     }
     public render() {
         const { pathName } = this.state;
         return(<div className="header">
             <div className="header-content">
-                <div className="header-logo" onClick={() => this.onPage}></div>
+                <div className="header-logo" onClick={ this.onPage.bind(this) }></div>
                 <div className="header-menu">
                     {
                         Menus.map((item, index) => {

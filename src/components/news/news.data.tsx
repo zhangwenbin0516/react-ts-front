@@ -6,35 +6,55 @@
  *
  * Copyright (c) 2020 Your Company
  */
-interface Menu {
-    name: string,
-    path: string,
-    value: number|string
+interface NewsData {
+    img?: any
+    title?: string
+    des?: string
+    time?: any
+    com?: string
 }
-export const Menus: Array<Menu> = [
+
+export const newsList: Array<NewsData> = [
     {
-        name: '首页',
-        path: '/page/home',
-        value: ''
+        img: '',
+        title: '冻师傅',
+        des: 'sadsdasdasdasdasdasd',
+        time: '2020-08-30',
+        com: '冻师傅头条'
     },
     {
-        name: '关于我们',
-        path: '/page/about',
-        value: ''
+        img: '',
+        title: '冻师傅',
+        des: 'sadsdasdasdasdasdasd',
+        time: '2020-08-30',
+        com: '冻师傅头条'
     },
     {
-        name: '新闻资讯',
-        path: '/page/news',
-        value: ''
+        img: '',
+        title: '冻师傅',
+        des: '推动产业升级，让牛羊肉生意更轻松。推动业升级，让牛羊肉生意更轻松！推动产业升级，让牛羊肉生意更轻松。推动业升级，让牛羊肉生意更轻松！',
+        time: '2020-08-30',
+        com: '冻师傅头条'
     },
     {
-        name: '我们的产品',
-        path: '/page/product',
-        value: ''
+        img: '',
+        title: '冻师傅',
+        des: 'sadsdasdasdasdasdasd',
+        time: '2020-08-30',
+        com: '冻师傅头条'
     },
     {
-        name: '联系我们',
-        path: '/page/contact',
-        value: ''
+        img: '',
+        title: '冻师傅',
+        des: 'sadsdasdasdasdasdasd',
+        time: '2020-08-30',
+        com: '冻师傅头条'
+    },
+    {
+        img: '',
+        title: '冻师傅',
+        des: 'sadsdasdasdasdasdasd',
+        time: '2020-08-30',
+        com: '冻师傅头条'
     }
 ]

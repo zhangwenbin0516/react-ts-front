@@ -9,7 +9,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 interface Props {   //声明附近文件传值类型
-    store: object
+    store?: any
 }
 interface RouteConfig{  //声明路由数据类型
     name: string,
@@ -24,7 +24,7 @@ const routerList:Array<RouteConfig> = [ //声明数组
         value: 'page',
         show: true,
         path: '/page',
-        component: () => import('@page/page.module')
+        component: require('@page/page.module').default
     }
 ]
 class AppRouter extends React.PureComponent<Props, any> {
@@ -36,12 +36,11 @@ class AppRouter extends React.PureComponent<Props, any> {
         this.state.store = this.props.store;
     }
     public render() {
-        const { store } = this.state;
         return(<Router>
             <Switch>
                 {
                     routerList.map((item, index) => {
-                        return <Route store={ store } path={ item.path } key={ index } component={ item.component } />
+                        return <Route store={ ...this.props.store } path={ item.path } key={ index } component={ item.component } />
                     })
                 }
                 <Redirect to='/page' />

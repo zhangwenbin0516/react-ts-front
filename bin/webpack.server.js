@@ -63,6 +63,7 @@ module.exports = {
                 include: path.join(__dirname, '..', 'src'),
                 use: [
                     {loader: 'style-loader'},
+                    {loader: MiniCssExtractPlugin.loader},
                     {loader: 'css-loader'},
                     {loader: 'sass-loader'}
                 ],
@@ -100,6 +101,9 @@ module.exports = {
                 to: path.join(__dirname, '..', 'dist/')
             }
         ]),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash].css'
+        }),
         new webpack.HotModuleReplacementPlugin()
     ],
     output: {

@@ -32,3 +32,18 @@ $publicPath: "../images/";
     align-items: flex-end;
   }
 }
+$white: #fff;
+$FFA51B: #FFA51B;
+@mixin overflow($s: o) {
+  overflow: hidden;
+  @if($s == y) {
+    overflow-y: auto;
+  } @else if($s == x) {
+    overflow-x: auto;
+  }
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

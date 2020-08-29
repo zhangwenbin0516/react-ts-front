@@ -8,7 +8,7 @@
 */
 import React from 'react';
 interface Props {}
-import "./page.style.scss";
+import "./product.style.scss";
 class ProductModule extends React.PureComponent<Props>{
     constructor(public props: Props) {
         super(props);

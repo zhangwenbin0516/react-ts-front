@@ -8,7 +8,9 @@
 */
 import React from 'react';
 interface Props {}
-import "./page.style.scss";
+import "./news.style.scss";
+import NewComponent from "@page/news/new.component";
+import DetailComponent from "@page/news/detail.component";
 class NewsModule extends React.PureComponent<Props>{
     constructor(public props: Props) {
         super(props);
@@ -17,7 +19,8 @@ class NewsModule extends React.PureComponent<Props>{
     componentWillMount() {
     }
     public render() {
-        return(<div className="page">
+        return(<div className="news">
+            <DetailComponent />
         </div>)
     }
 }

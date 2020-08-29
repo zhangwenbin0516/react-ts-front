@@ -3,6 +3,7 @@ $publicPath: "../../assets/images/";
 .header {
   width: 100%;
   @include flex(c, c);
+  background: $white;
   &-content {
     @include flex(r-b, c);
     width: 15rem;
@@ -28,7 +29,7 @@ $publicPath: "../../assets/images/";
         &::before {
           @include absolute(auto, 0, 0.06rem, 0);
           height: 0.02rem;
-          background: #FFA51B;
+          background: $FFA51B;
         }
       }
     }
