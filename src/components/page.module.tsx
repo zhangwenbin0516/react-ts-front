@@ -18,7 +18,7 @@ class PageModule extends React.PureComponent<Props>{
         console.log(this.state.eee)
     }
     public render() {
-        return(<div className="page"></div>)
+        return(<div className="page">大师傅士大夫</div>)
     }
 }
 

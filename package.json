@@ -1,7 +1,7 @@
 {
   "name": "question-test-front",
   "version": "1.0.0",
-  "description": "中博题库做题系统",
+  "description": "冻师傅",
   "scripts": {
     "ts-dev": "npx ./src/index.ts",
     "ts-build": "tsc",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/zhangwenbin0516/react-ts-front.git"
   },
   "keywords": [
-    "中博题库",
+    "冻师傅",
     "react",
     "typescript",
     "webpack"
@@ -45,8 +45,8 @@
     "ts-node-dev": "^1.0.0-pre.44",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {

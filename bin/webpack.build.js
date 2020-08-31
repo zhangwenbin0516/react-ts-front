@@ -1,40 +1,40 @@
 /*
- * File: webpack.build.js
+ * File: webpack.server.js
  * Project: question-test-front
- * File Created: Wednesday, 15th April 2020 3:29:00 pm
+ * File Created: Wednesday, 15th April 2020 3:28:17 pm
  * Author: <<zhangwenbin>> (<<942623159@qq.com>>)
  * -----
- * Last Modified: Wednesday, 15th April 2020 3:29:03 pm
+ * Last Modified: Wednesday, 15th April 2020 3:29:09 pm
  * Modified By: <<zhangwenbin>> (<<942623159@qq.com>>>)
  * -----
  * Copyright 2017 - 2020 Your Company, Your Company
  */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     entry: {
-        app: path.join(__dirname, '..', 'src/index.tsx')
+        app: path.join(__dirname, '..', 'src/app.module.tsx')
     },
-    output: {
-        filename: 'js/[name].[Hash].js',
-        path: path.join(__dirname, '..', 'dist'),
-        publicPath: '/'
-    },
-    // devtool: "source-map",
-    /*devServer: {
-        host: 'localhost',
-        port: '4078',
-        open: true,
-        hot: true,
-        historyApiFallback: {
-            index: 'index.html'
-        }
-    },*/
+    devtool: "source-map",
+    // devServer: {
+    //     host: 'localhost',
+    //     port: '4078',
+    //     open: true,
+    //     hot: true,
+    //     historyApiFallback: true
+    // },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"]
+        extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"],
+        alias: {
+            '@': path.join(__dirname, '..', 'src'),
+            '@page': path.join(__dirname, '..', 'src/components'),
+            '@redux': path.join(__dirname, '..', 'src/redux')
+        }
     },
     module: {
         rules: [
@@ -54,19 +54,47 @@ module.exports = {
                 use: [{
                     loader: "source-map-loader"
                 }]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                include: path.join(__dirname, 'src'),
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ],
+                exclude: /node_modules/
             }
         ]
     },
-     externals: {
-         "react": "React",
-         "react-dom": "ReactDOM"
-     },
     plugins: [
+        new CleanWebpackPlugin({
+            dry: true, // 模拟删除
+            verbose: true, // 写入日志
+            cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist")]
+        }),
         new HtmlWebpackPlugin({
-            title: "中博题库",
+            title: "冻师傅",
+            facicon: path.join(__dirname, '..', 'dist/favicon.ico'),
             template: path.join(__dirname, '..', 'static/index.html'),
             filename: 'index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
-    ]
+        new CopyWebpackPlugin([
+            {
+                from: path.join(__dirname, '..', 'static/favicon.ico'),
+                to: path.join(__dirname, '..', 'dist/')
+            }
+        ])
+    ],
+    output: {
+        filename: 'js/[name].[Hash].js',
+        path: path.join(__dirname, '..', 'dist'),
+        publicPath: '/'
+    }
 }

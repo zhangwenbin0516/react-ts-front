@@ -22,10 +22,32 @@ const store = createStore(reducer);
 import AppRouter from '@/app.router';
 
 interface Props {}
-class AppModule extends React.PureComponent<Props> {
+class AppModule extends React.PureComponent<Props, any> {
+    protected doc: any = document;
+    protected win: any = window;
     constructor(public props: Props) {
         super(props)
     }
+
+    componentDidMount(): void {
+        this.reSize();
+        this.win.addEventListener('resize', this.reSize);
+    }
+
+    componentWillUnmount(): void {
+        this.win.documentElement.removeEventListener('resize', this.reSize);
+    }
+
+    protected reSize() {
+        let width: number = this.doc.documentElement.clientWidth;
+        console.log(width)
+        if (width < 1336) {
+            width = 1336;
+        }
+        let num: number = width * 100 / 1920;
+        this.doc.documentElement.style.fontSize = num + 'px';
+    }
+
     public render() {
         return(<ConfigProvider locale={zhCN}>
             <Provider store={store}>

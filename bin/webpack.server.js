@@ -54,6 +54,22 @@ module.exports = {
                 use: [{
                     loader: "source-map-loader"
                 }]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                include: path.join(__dirname, 'src'),
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ],
+                exclude: /node_modules/
             }
         ]
     },
@@ -64,14 +80,14 @@ module.exports = {
             cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist")]
         }),
         new HtmlWebpackPlugin({
-            title: "中博题库",
-            facicon: path.join(__dirname, '..', 'dist/facicon.png'),
+            title: "冻师傅",
+            facicon: path.join(__dirname, '..', 'dist/favicon.ico'),
             template: path.join(__dirname, '..', 'static/index.html'),
             filename: 'index.html'
         }),
         new CopyWebpackPlugin([
             {
-                from: path.join(__dirname, '..', 'static/facicon.png'),
+                from: path.join(__dirname, '..', 'static/favicon.ico'),
                 to: path.join(__dirname, '..', 'dist/')
             }
         ]),
