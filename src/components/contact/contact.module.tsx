@@ -8,9 +8,8 @@
 */
 import React from 'react';
 interface Props {}
-import "./page.style.scss";
-import HeaderModule from "@template/header/header.module";
-class PageModule extends React.PureComponent<Props>{
+import "./contact.style.scss";
+class ContactModule extends React.PureComponent<Props>{
     constructor(public props: Props) {
         super(props);
     }
@@ -19,9 +18,8 @@ class PageModule extends React.PureComponent<Props>{
     }
     public render() {
         return(<div className="page">
-            <HeaderModule { ...this.props } />
         </div>)
     }
 }
 
-export default PageModule;
+export default ContactModule;

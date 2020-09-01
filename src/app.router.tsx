@@ -3,7 +3,7 @@
  * Path: d:\workspaces\react-ts-front
  * Created Date: Thursday, May 7th 2020, 9:56:20 am
  * Author: zhangwenbin
- * 
+ *
  * Copyright (c) 2020 Your Company
  */
 import React from 'react';
@@ -24,7 +24,7 @@ const routerList:Array<RouteConfig> = [ //声明数组
         value: 'page',
         show: true,
         path: '/page',
-        component: require('@page/page.module').default
+        component: () => import('@page/page.module')
     }
 ]
 class AppRouter extends React.PureComponent<Props, any> {

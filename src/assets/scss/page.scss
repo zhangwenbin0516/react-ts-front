@@ -1,0 +1,34 @@
+@import "./reset";
+$publicPath: "../images/";
+@mixin absolute($t: auto, $r: auto, $b: auto, $l: auto, $z: 1) {
+  position: absolute;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  z-index: $z;
+}
+
+@mixin flex($x: l, $y: t) {
+  display: flex;
+  @if($x == 'l') {
+    justify-content: flex-start;
+  } @else if($x == 'c') {
+    justify-content: center;
+  } @else if($x == 'r') {
+    justify-content: flex-end;
+  } @else if($x == 'r-b') {
+    flex-direction: row;
+    justify-content: space-between;
+  } @else if($x == 'c-b') {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @if($y == 't') {
+    align-items: flex-start;
+  } @else if($y == 'c') {
+    align-items: center;
+  } @else if($y == 'b') {
+    align-items: flex-end;
+  }
+}

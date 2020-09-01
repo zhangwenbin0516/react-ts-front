@@ -13,6 +13,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -57,19 +58,37 @@ module.exports = {
             },
             {
                 test: /\.(sa|sc|c)ss$/,
-                include: path.join(__dirname, 'src'),
+                include: path.join(__dirname, '..', 'src'),
                 use: [
+                    {loader: 'style-loader'},
+                    {loader: MiniCssExtractPlugin.loader},
+                    {loader: 'css-loader'},
                     {
-                        loader: 'style-loader'
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                require('postcss-import')(),
+                                require('autoprefixer')({
+                                    browsers: ['last 30 versions', "> 2%", "Firefox >= 10", "ie 6-11"]
+                                })
+                            ]
+                        }
                     },
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'sass-loader'
-                    }
+                    {loader: 'sass-loader'}
                 ],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8921,
+                            name: 'images/[name].[hash:9].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -90,7 +109,10 @@ module.exports = {
                 from: path.join(__dirname, '..', 'static/favicon.ico'),
                 to: path.join(__dirname, '..', 'dist/')
             }
-        ])
+        ]),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash].css'
+        })
     ],
     output: {
         filename: 'js/[name].[Hash].js',

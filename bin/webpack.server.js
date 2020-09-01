@@ -13,6 +13,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -26,6 +27,7 @@ module.exports = {
         port: '4078',
         open: true,
         hot: true,
+        inline: true,
         historyApiFallback: true
     },
     resolve: {
@@ -33,7 +35,8 @@ module.exports = {
         alias: {
             '@': path.join(__dirname, '..', 'src'),
             '@page': path.join(__dirname, '..', 'src/components'),
-            '@redux': path.join(__dirname, '..', 'src/redux')
+            '@redux': path.join(__dirname, '..', 'src/redux'),
+            '@template': path.join(__dirname, '..', 'src/template')
         }
     },
     module: {
@@ -57,19 +60,25 @@ module.exports = {
             },
             {
                 test: /\.(sa|sc|c)ss$/,
-                include: path.join(__dirname, 'src'),
+                include: path.join(__dirname, '..', 'src'),
                 use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'sass-loader'
-                    }
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'sass-loader'}
                 ],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8921,
+                            name: 'images/[name].[hash:9].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
